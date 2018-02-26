@@ -1,0 +1,7 @@
+<!-- enlace simple de componentes -->
+<div *ngFor="let verse of verses">
+  <p *ngIf="showVerses">
+    {{verse}}
+  </p>
+</div>
+<input type="button" (click)="showOnClick()" value="Mostrar">
