@@ -1,0 +1,11 @@
+<h2>Verso</h2>
+<form [formGroup]="verseForm" novalidate>
+  <label>Jugador
+    <input class="form-control" formControlName="playerForm">
+  </label>
+  <label>Verso
+    <input class="form-control" formControlName="contentForm">
+  </label>
+</form>
+
+<p>Verso: {{verseForm.value | json }} | {{verseForm.status}}</p>
