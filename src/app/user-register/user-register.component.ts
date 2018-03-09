@@ -34,6 +34,6 @@ export class UserRegisterComponent implements OnInit {
       } else {
         this.openDialog();
       }
-    })
+    });
   }
 }
