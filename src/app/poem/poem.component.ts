@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
+import { Verse } from '../verse';
 
 @Component({
   selector: 'app-poem',
@@ -15,17 +16,19 @@ export class PoemComponent implements OnInit {
   // @Output() onMostrar = new EventEmitter<boolean>()
   @Output() onShow = new EventEmitter<any>(); 
   // verse es un arreglo de strings, 
-  verses:Array<String> = [
-    "Cuando supe la noticia de que ya no me querías",
-    "hasta el perro de mi casa me miraba y se reía",
-    "los zapaticos me aprietan y las medias me dan calor",
-    "del cielo cayó una rosa y el viento se la llevó",
-    "p de pizza, p de pasta, pepperoni",
-    "yo sigo vacilando las penas olvidando"
-  ];
-  constructor() { }
+  verses:Array<Verse> = [];
+  constructor() {
+    let newVerse = new Verse();
+    newVerse.playerName = "La computadora";
+    newVerse.content = "Cuando supe la noticia de que ya no me querías";
+    this.verses.push(newVerse);
+  }
   // se ejecuta inmediatamente luego del constructor, todo fue cargado, es como el $(document).ready()
   ngOnInit() {
+  }
+
+  onSubmit(verse:Verse) {
+    this.verses.push(verse);
   }
 
   showOnClick() {

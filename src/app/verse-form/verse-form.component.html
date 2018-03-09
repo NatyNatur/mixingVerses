@@ -6,6 +6,11 @@
   <label>Verso
     <input class="form-control" formControlName="contentForm">
   </label>
+  <label>Indice
+      <input class="form-control" formControlName="indice">
+    </label>
+    <input type="button" value="Agregar verso" (click)="createForm()">
 </form>
 
 <p>Verso: {{verseForm.value | json }} | {{verseForm.status}}</p>
+<p>Verso the real: {{verse | json}}</p>
