@@ -1,6 +1,6 @@
 <!-- enlace simple de componentes -->
 <div *ngFor="let verse of verses">
-  <app-poem [verso]="verse"></app-poem>
+  <app-verse-comp [verse]="verse"></app-verse-comp>
 </div>
 <input type="button" (click)="showOnClick()" value="Mostrar">
 <app-verse-form (submit) = "onSubmit($event)"></app-verse-form>
