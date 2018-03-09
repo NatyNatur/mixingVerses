@@ -14,6 +14,7 @@ import { UserRegisterComponent } from './user-register/user-register.component';
 
 // Componentes externos
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import { RegistrationModalComponent } from './registration-modal/registration-modal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './auth.service';
@@ -35,7 +36,8 @@ import { AuthService } from './auth.service';
 
     // Componentes externos
     MatDialogModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatFormFieldModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],

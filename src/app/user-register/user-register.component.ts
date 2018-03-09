@@ -19,12 +19,12 @@ export class UserRegisterComponent implements OnInit {
     });
   // una referencia es la forma de acceder a la información ingresada en el diálogo
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+      console.log('The dialog was closed > ' + result.email);
+      this.authService.signup(result.email, result.password);
     });
   }
   
   ngOnInit() {
-    // this.openDialog();
   }
 
   ngAfterViewInit() {
