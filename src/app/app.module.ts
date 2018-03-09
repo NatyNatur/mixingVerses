@@ -10,13 +10,15 @@ import { VerseFormComponent } from './verse-form/verse-form.component';
 import { VerseCompComponent } from './verse-comp/verse-comp.component';
 import { AngularFireModule} from 'angularfire2';
 import { environment } from '../environments/environment';
+import { UserRegisterComponent } from './user-register/user-register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PoemComponent,
     VerseFormComponent,
-    VerseCompComponent
+    VerseCompComponent,
+    UserRegisterComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
