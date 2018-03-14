@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database-deprecated';
+
 
 import { AppComponent } from './app.component';
 import { PoemComponent } from './poem/poem.component';
@@ -18,6 +20,7 @@ import { MatFormFieldModule, MatInputModule } from '@angular/material';
 import { RegistrationModalComponent } from './registration-modal/registration-modal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthService } from './auth.service';
+import { LoginModalComponent } from './login-modal/login-modal.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +29,8 @@ import { AuthService } from './auth.service';
     VerseFormComponent,
     VerseCompComponent,
     UserRegisterComponent,
-    RegistrationModalComponent
+    RegistrationModalComponent,
+    LoginModalComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -37,13 +41,16 @@ import { AuthService } from './auth.service';
     // Componentes externos
     MatDialogModule,
     BrowserAnimationsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatInputModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AngularFireDatabase],
   bootstrap: [AppComponent],
   entryComponents: [
     UserRegisterComponent,
-    RegistrationModalComponent
+    RegistrationModalComponent,
+    LoginModalComponent,
+    AppComponent
 
   ]
 })

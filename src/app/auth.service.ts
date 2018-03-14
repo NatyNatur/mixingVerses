@@ -26,5 +26,16 @@ export class AuthService {
         console.log('We failed cuz >' + error);
       })
    }
+   login(email:string, password:string) {
+     this.firebaseAuth
+     .auth
+     .signInWithEmailAndPassword(email, password)
+     .then((value)=> {
+       console.log('Success!! ah-ha:', value);
+     })
+     .catch((error)=>{
+       console.log('We failed again cuz > ' + error);
+     })
+   }
 
 }

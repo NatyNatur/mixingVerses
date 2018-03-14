@@ -1,5 +1,5 @@
 <!-- enlace simple de componentes -->
-<div *ngFor="let verse of verses">
+<div *ngFor="let verse of (verses | async)">
   <app-verse-comp [verse]="verse"></app-verse-comp>
 </div>
 <input type="button" (click)="showOnClick()" value="Mostrar">

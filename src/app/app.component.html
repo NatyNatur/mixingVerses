@@ -1,7 +1,13 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<app-user-register></app-user-register>
+<input type="button" value="Login" (click)="loginOnClick()">
+<input type="button" value="Register" (click)="registerOnClick()">
+<app-user-register *ngIf="modalRegister"></app-user-register>
+<app-login-modal *ngIf="modalLogin"></app-login-modal>
 <div style="text-align:center">
-  <h1>
+  <h1 *ngIf="authService.user">
+    Welcome {{(authService.user | async)?.email}} to {{ title }}!
+  </h1>
+  <h1 *ngIf="!authService.user">
     Welcome to {{ title }}!
   </h1>
 </div>

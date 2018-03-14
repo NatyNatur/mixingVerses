@@ -7,7 +7,7 @@ import { Verse } from '../verse';
   styleUrls: ['./verse-comp.component.css']
 })
 export class VerseCompComponent implements OnInit {
-  @Input() verse:Verse;
+  @Input() verse:any;
 
   constructor() { }
 

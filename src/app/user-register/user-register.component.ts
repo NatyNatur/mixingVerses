@@ -15,7 +15,10 @@ export class UserRegisterComponent implements OnInit {
   openDialog():void {
     let dialogRef = this.dialog.open(RegistrationModalComponent, {
       width: '250px',
-      data: {}
+      data: {
+        email : '',
+        password : ''
+      }
     });
   // una referencia es la forma de acceder a la información ingresada en el diálogo
     dialogRef.afterClosed().subscribe(result => {

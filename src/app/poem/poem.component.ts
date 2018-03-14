@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Input, Output } from '@angular/core';
 import { Verse } from '../verse';
+import { Observable } from 'rxjs/Observable';
+import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database-deprecated';
 
 @Component({
   selector: 'app-poem',
@@ -16,19 +18,21 @@ export class PoemComponent implements OnInit {
   // @Output() onMostrar = new EventEmitter<boolean>()
   @Output() onShow = new EventEmitter<any>(); 
   // verse es un arreglo de strings, 
-  verses:Array<Verse> = [];
-  constructor() {
+  verses: FirebaseListObservable<any[]>;
+  constructor(private af:AngularFireDatabase) {
+    /* 
     let newVerse = new Verse();
     newVerse.playerName = "La computadora";
     newVerse.content = "Cuando supe la noticia de que ya no me querías";
-    this.verses.push(newVerse);
+    this.verses.push(newVerse);*/
   }
   // se ejecuta inmediatamente luego del constructor, todo fue cargado, es como el $(document).ready()
   ngOnInit() {
+    this.verses = this.af.list('/verses');
   }
 
   onSubmit(verse:Verse) {
-    this.verses.push(verse);
+    this.verses.push({content: verse.content, player:verse.playerName});
   }
 
   showOnClick() {
@@ -38,5 +42,9 @@ export class PoemComponent implements OnInit {
       show: !this.showVerses,
       id: this.id
     })
+  }
+// void - no retorna nada, no se espera nada de ella
+  addVerse(player: string, verse: string):void{
+
   }
 }
